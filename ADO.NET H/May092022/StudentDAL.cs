@@ -14,6 +14,9 @@ namespace ADO.NET_H.May092022
             string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             con = new SqlConnection(constr);
         }
+        public int SaveStudent()
+        {
 
+        }
     }
 }
