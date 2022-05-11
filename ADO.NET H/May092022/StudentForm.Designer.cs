@@ -1,5 +1,5 @@
 ﻿
-namespace ADO.NET_H
+namespace ADO.NET_H.May092022
 {
     partial class StudentForm
     {
@@ -52,7 +52,7 @@ namespace ADO.NET_H
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.Size = new System.Drawing.Size(60, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Roll No";
             // 
@@ -70,7 +70,7 @@ namespace ADO.NET_H
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 24);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Branch";
             // 
@@ -79,7 +79,7 @@ namespace ADO.NET_H
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 24);
+            this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Perecntage";
             // 
@@ -139,6 +139,7 @@ namespace ADO.NET_H
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSearch
             // 
@@ -148,6 +149,7 @@ namespace ADO.NET_H
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -157,6 +159,7 @@ namespace ADO.NET_H
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnShowAll
             // 
@@ -166,6 +169,7 @@ namespace ADO.NET_H
             this.btnShowAll.TabIndex = 13;
             this.btnShowAll.Text = "Show All Records";
             this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // StudentDataGridView
             // 
