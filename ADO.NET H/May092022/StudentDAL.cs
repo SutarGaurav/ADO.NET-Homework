@@ -25,14 +25,14 @@ namespace ADO.NET_H.May092022
             con.Close();
             return res;            
         }
-        public int SaveStudent(StudentClass studentClass)
+        public int SaveStudent(StudentClass StudentClass)
         {
-            string qry = "insert into StudentTable Values (@rollno, @name, @brance,@percentage)";
+            string qry = "insert into StudentTable values (@rollno, @name, @branch, @percentage)";
             cmd = new SqlCommand(qry, con);
             cmd.Parameters.AddWithValue("@rollno", StudentClass.RollNo);
             cmd.Parameters.AddWithValue("@name", StudentClass.Name);
             cmd.Parameters.AddWithValue("@branch", StudentClass.Branch);
-            cmd.Parameters.AddWithValue("@perccentage", StudentClass.Percentage);
+            cmd.Parameters.AddWithValue("@percentage", StudentClass.Percentage);
             con.Open();
             int res = cmd.ExecuteNonQuery();
             con.Close();
@@ -40,23 +40,23 @@ namespace ADO.NET_H.May092022
         } //reference to btnSave_Click
         public int UpdateStudent(StudentClass StudentClass)
         {
-            string qry = "select max(Id) from StudentTable";
+            string qry = "select max(RollNo) from StudentTable";
             cmd = new SqlCommand(qry, con);
             cmd.Parameters.AddWithValue("@rollno", StudentClass.RollNo);
             cmd.Parameters.AddWithValue("@name", StudentClass.Name);
             cmd.Parameters.AddWithValue("@branch", StudentClass.Branch);
-            cmd.Parameters.AddWithValue("@perccentage", StudentClass.Percentage);
+            cmd.Parameters.AddWithValue("@percentage", StudentClass.Percentage);
             con.Open();
             int res = cmd.ExecuteNonQuery();
             con.Close();
             return res;
         }
-        public StudentClass SearchStudent(int RollNo)
+        public StudentClass SearchStudent(int rollNo)
         {
             StudentClass StudentClass = new StudentClass(); 
             string qry = "select * from StudentTable where RollNo=@rollno";
             cmd = new SqlCommand(qry, con);
-            cmd.Parameters.AddWithValue("@rollno", RollNo);
+            cmd.Parameters.AddWithValue("@rollno", rollNo);
             con.Open();
             dr = cmd.ExecuteReader();
             if(dr.HasRows)
@@ -89,6 +89,7 @@ namespace ADO.NET_H.May092022
             cmd = new SqlCommand(qry, con);
             con.Open();
             dr = cmd.ExecuteReader();
+            table.Load(dr);
             con.Close();
             return table;
         }

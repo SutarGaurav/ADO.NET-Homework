@@ -26,9 +26,9 @@ namespace ADO.NET_H.May092022
             txtBranch.Clear();
             txtPercentage.Clear();
         }
-/*        private void btnAddNew_Click(object sender, EventArgs e)
+        private void btnAddNew_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 StudentClass StudentClass = new StudentClass();
                 object res = StudentDAL.AddNewStudent(StudentClass);
@@ -48,20 +48,20 @@ namespace ADO.NET_H.May092022
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
 
 
         }
-*/
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 StudentClass student = new StudentClass();
-                student.RollNo = int.Parse(txtRollNo.Text);
+                student.RollNo = Convert.ToInt32(txtRollNo.Text);
                 student.Name = txtName.Text;
                 student.Branch = txtBranch.Text;
-                student.Percentage = float.Parse(txtPercentage.Text);
+                student.Percentage = Convert.ToSingle(txtPercentage.Text);
                 int res = StudentDAL.SaveStudent(student);
                 if (res == 1)
                 {
@@ -99,7 +99,7 @@ namespace ADO.NET_H.May092022
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            StudentClass StudentClass = StudentDAL.SearchStudent(Convert.ToInt32(txtRollNo));
+            StudentClass StudentClass = StudentDAL.SearchStudent(Convert.ToInt32(txtRollNo.Text));
             if(StudentClass.RollNo > 0)
             {
                 txtName.Text = StudentClass.Name;
@@ -114,7 +114,7 @@ namespace ADO.NET_H.May092022
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int res = StudentDAL.Delete(Convert.ToInt32(txtRollNo));
+            int res = StudentDAL.Delete(Convert.ToInt32(txtRollNo.Text));
             if (res == 1)
                 MessageBox.Show("Record Deleted");
         }
