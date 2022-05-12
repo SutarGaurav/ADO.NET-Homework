@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ADO.NET_H.May092022
+namespace ADO.NET_H.Employee
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ADO.NET_H.May092022
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentForm());
+            Application.Run(new EmployeeForm());
         }
     }
 }
