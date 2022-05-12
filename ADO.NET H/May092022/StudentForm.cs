@@ -26,13 +26,13 @@ namespace ADO.NET_H.May092022
             txtBranch.Clear();
             txtPercentage.Clear();
         }
-        private void btnAddNew_Click(object sender, EventArgs e)
+/*        private void btnAddNew_Click(object sender, EventArgs e)
         {
             try
             {
-                
-                object obj = cmd.ExecuteScalar();
-                if (obj == DBNull.Value)
+                StudentClass StudentClass = new StudentClass();
+                object res = StudentDAL.AddNewStudent(StudentClass);
+                if (res == DBNull.Value)
                     txtRollNo.Text = "1";
                 else
                 {
@@ -52,7 +52,7 @@ namespace ADO.NET_H.May092022
 
 
         }
-
+*/
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -84,7 +84,7 @@ namespace ADO.NET_H.May092022
                 StudentClass.RollNo = Convert.ToInt32(txtRollNo.Text);
                 StudentClass.Name = txtName.Text;
                 StudentClass.Branch = txtBranch.Text;
-                StudentClass.Percentage = float.Parse(txtPercentage.Text);
+                StudentClass.Percentage = Convert.ToSingle(txtPercentage.Text);
                 int res = StudentDAL.UpdateStudent(StudentClass);
                 if (res == 1)
                     MessageBox.Show("Record Updated");
@@ -121,7 +121,8 @@ namespace ADO.NET_H.May092022
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            DataTable table =
+            DataTable table = StudentDAL.ShowAllStudent();
+            StudentDataGridView.DataSource = table;
         }
     }
 }

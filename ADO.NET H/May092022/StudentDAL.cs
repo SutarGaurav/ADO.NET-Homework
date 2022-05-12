@@ -16,6 +16,15 @@ namespace ADO.NET_H.May092022
             string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             con = new SqlConnection(constr);
         }
+        public object AddNewStudent(StudentClass StudentClass)
+        {
+            string qry = "select max(RollNo) from StudentTable";
+            cmd = new SqlCommand(qry, con);
+            con.Open();
+            object res = cmd.ExecuteScalar();
+            con.Close();
+            return res;            
+        }
         public int SaveStudent(StudentClass studentClass)
         {
             string qry = "insert into StudentTable Values (@rollno, @name, @brance,@percentage)";
@@ -75,9 +84,13 @@ namespace ADO.NET_H.May092022
         }
         public DataTable ShowAllStudent()
         {
-            StudentClass StudentClass = new StudentClass();
-
-            return StudentClass;
+            DataTable table = new DataTable();
+            string qry = "select * from StudentTable";
+            cmd = new SqlCommand(qry, con);
+            con.Open();
+            dr = cmd.ExecuteReader();
+            con.Close();
+            return table;
         }
     }
 }
